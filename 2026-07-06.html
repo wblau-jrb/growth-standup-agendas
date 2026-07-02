@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Stand-Up Agenda - Jones Road Beauty</title>
+
+    <!-- Fallback Fonts (used only if JRB fonts not installed locally) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Space+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================================================
+           JRB Font Declarations
+           ============================================================================= */
+        @font-face {
+            font-family: 'Canela';
+            src: local('Canela-Light'), local('Canela Light');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Canela';
+            src: local('Canela-LightItalic'), local('Canela Light Italic');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BaseMonoWideWeb';
+            src: local('BaseMonoWideWeb'), local('Base Mono Wide');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'RingsideWideWeb';
+            src: local('RingsideWideWeb'), local('RingsideWide-Book');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'GeogrotesqueCondBoldWeb';
+            src: local('GeogrotesqueCondBoldWeb'), local('Geogrotesque Cond Bold');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* =============================================================================
+           JRB Brand Theme
+           ============================================================================= */
+        :root {
+            --jrb-black: #000000;
+            --jrb-cream: #f6f2eb;
+            --jrb-pink: #ff2e92;
+            --jrb-white: #FFFFFF;
+            --jrb-border: #d0d0d0;
+
+            --font-headline: 'Canela', 'DM Serif Display', Georgia, serif;
+            --font-body: 'RingsideWideWeb', 'DM Sans', -apple-system, sans-serif;
+            --font-mono: 'BaseMonoWideWeb', 'Space Mono', monospace;
+            --font-display: 'GeogrotesqueCondBoldWeb', 'Barlow Condensed', 'Arial Black', sans-serif;
+
+            --ease-smooth: cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--jrb-cream);
+            color: var(--jrb-black);
+            line-height: 1.5;
+            letter-spacing: .025em;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: clamp(2rem, 8vw, 6rem);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide--dark {
+            background: var(--jrb-black);
+            color: var(--jrb-white);
+        }
+
+        h1 {
+            font-family: var(--font-headline);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-family: var(--font-headline);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            max-width: 50ch;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 550;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--jrb-pink);
+            margin-bottom: 1rem;
+        }
+
+        /* Cover slide */
+        .cover-date {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 550;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--jrb-white);
+            opacity: 0.6;
+            margin-top: 1.5rem;
+        }
+
+        .cover-rule {
+            width: 64px;
+            height: 2px;
+            background: var(--jrb-pink);
+            margin-top: 2.5rem;
+        }
+
+        /* Agenda slide */
+        .agenda-list {
+            list-style: none;
+            max-width: 860px;
+            margin-top: 1rem;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: baseline;
+            gap: 2rem;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--jrb-border);
+        }
+
+        .agenda-item:first-child {
+            border-top: 1px solid var(--jrb-border);
+        }
+
+        .agenda-num {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 550;
+            letter-spacing: 0.4px;
+            color: var(--jrb-pink);
+            flex: 0 0 2rem;
+        }
+
+        .agenda-title {
+            font-family: var(--font-headline);
+            font-size: clamp(1.4rem, 2.6vw, 2rem);
+            font-weight: 300;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+        }
+
+        .agenda-title a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 2px solid var(--jrb-pink);
+            transition: color 0.2s ease;
+        }
+
+        .agenda-title a:hover {
+            color: var(--jrb-pink);
+        }
+
+        .agenda-detail {
+            font-family: var(--font-body);
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            margin-top: 0.4rem;
+            margin-bottom: 0;
+            opacity: 0.65;
+            max-width: 60ch;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s var(--ease-smooth),
+                        transform 0.8s var(--ease-smooth);
+        }
+
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .reveal:nth-child(3) { transition-delay: 0.2s; }
+        .reveal:nth-child(4) { transition-delay: 0.3s; }
+        .reveal:nth-child(5) { transition-delay: 0.4s; }
+        .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--jrb-pink);
+            width: 0%;
+            z-index: 100;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 550;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--jrb-black);
+            opacity: 0.4;
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 550;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            opacity: 0.4;
+        }
+
+        @media (max-width: 768px) {
+            .nav-hint { display: none; }
+            .agenda-item { gap: 1.25rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                transition: opacity 0.3s ease;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress"></div>
+
+    <!-- Slide 1: Cover -->
+    <section class="slide slide--dark">
+        <p class="subtitle reveal">Jones Road Beauty &middot; Growth</p>
+        <h1 class="reveal">Growth stand-up</h1>
+        <p class="cover-date reveal">Monday, July 6, 2026</p>
+        <div class="cover-rule reveal"></div>
+    </section>
+
+    <!-- Slide 2: Agenda -->
+    <section class="slide">
+        <p class="subtitle reveal">Agenda</p>
+        <h2 class="reveal">What we're covering</h2>
+        <ol class="agenda-list reveal">
+            <li class="agenda-item">
+                <span class="agenda-num">01</span>
+                <div>
+                    <div class="agenda-title"><a href="https://meta-performance-dashboard-sigma.vercel.app/" target="_blank" rel="noopener">Performance review</a></div>
+                </div>
+            </li>
+            <li class="agenda-item">
+                <span class="agenda-num">02</span>
+                <div>
+                    <div class="agenda-title">Direct mail test planning</div>
+                </div>
+            </li>
+            <li class="agenda-item">
+                <span class="agenda-num">03</span>
+                <div>
+                    <div class="agenda-title">Account changes</div>
+                    <p class="agenda-detail">Value rules on placement &amp; campaign consolidation</p>
+                </div>
+            </li>
+            <li class="agenda-item">
+                <span class="agenda-num">04</span>
+                <div>
+                    <div class="agenda-title">Upcoming Haus test check-in</div>
+                    <p class="agenda-detail">Demand Gen &amp; Meta</p>
+                </div>
+            </li>
+            <li class="agenda-item">
+                <span class="agenda-num">05</span>
+                <div>
+                    <div class="agenda-title">New creative testing approach &amp; <a href="https://creative-strategy-sprints.vercel.app/" target="_blank" rel="noopener">sprint planning</a></div>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <div class="nav-hint">arrows to navigate</div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.querySelector('.progress');
+        let current = 0;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    updateProgress();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        slides.forEach(slide => observer.observe(slide));
+
+        function updateProgress() {
+            const scrolled = window.scrollY;
+            const total = document.body.scrollHeight - window.innerHeight;
+            const pct = (scrolled / total) * 100;
+            progress.style.width = pct + '%';
+        }
+
+        window.addEventListener('scroll', updateProgress);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                current = Math.min(current + 1, slides.length - 1);
+                slides[current].scrollIntoView({ behavior: 'smooth' });
+            }
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                current = Math.max(current - 1, 0);
+                slides[current].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        slides[0].classList.add('visible');
+    </script>
+</body>
+</html>

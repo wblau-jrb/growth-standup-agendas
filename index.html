@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Stand-Up Agendas - Jones Road Beauty</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Space+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'Canela';
+            src: local('Canela-Light'), local('Canela Light');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BaseMonoWideWeb';
+            src: local('BaseMonoWideWeb'), local('Base Mono Wide');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'RingsideWideWeb';
+            src: local('RingsideWideWeb'), local('RingsideWide-Book');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'GeogrotesqueCondBoldWeb';
+            src: local('GeogrotesqueCondBoldWeb'), local('Geogrotesque Cond Bold');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --jrb-black: #000000;
+            --jrb-cream: #f6f2eb;
+            --jrb-pink: #ff2e92;
+            --jrb-white: #FFFFFF;
+            --jrb-border: #d0d0d0;
+
+            --font-headline: 'Canela', 'DM Serif Display', Georgia, serif;
+            --font-body: 'RingsideWideWeb', 'DM Sans', -apple-system, sans-serif;
+            --font-mono: 'BaseMonoWideWeb', 'Space Mono', monospace;
+            --font-display: 'GeogrotesqueCondBoldWeb', 'Barlow Condensed', 'Arial Black', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--jrb-cream);
+            color: var(--jrb-black);
+            line-height: 1.5;
+            letter-spacing: .025em;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            min-height: 100vh;
+            padding: clamp(2.5rem, 8vw, 6rem);
+        }
+
+        .wrap { max-width: 820px; margin: 0 auto; }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 550;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--jrb-pink);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-headline);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .intro {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            max-width: 55ch;
+            opacity: 0.7;
+            margin-bottom: 3.5rem;
+        }
+
+        .deck-list { list-style: none; }
+
+        .deck-item {
+            border-top: 1px solid var(--jrb-border);
+        }
+        .deck-item:last-child {
+            border-bottom: 1px solid var(--jrb-border);
+        }
+
+        .deck-link {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1.75rem 0;
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 0.25s ease, color 0.2s ease;
+        }
+        .deck-link:hover {
+            padding-left: 0.75rem;
+            color: var(--jrb-pink);
+        }
+
+        .deck-title {
+            font-family: var(--font-headline);
+            font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+            font-weight: 300;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+        }
+
+        .deck-date {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 550;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            opacity: 0.55;
+        }
+
+        footer {
+            margin-top: 4rem;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 550;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p class="subtitle">Jones Road Beauty &middot; Growth</p>
+        <h1>Stand-up agendas</h1>
+        <p class="intro">Weekly agenda decks for the Growth stand-up. Newest at the top.</p>
+
+        <ul class="deck-list">
+            <!-- DECK_LIST_START -->
+            <li class="deck-item">
+                <a class="deck-link" href="2026-07-06.html">
+                    <span class="deck-title">Growth stand-up</span>
+                    <span class="deck-date">Mon, Jul 6, 2026</span>
+                </a>
+            </li>
+            <!-- DECK_LIST_END -->
+        </ul>
+
+        <footer>Jones Road Beauty &mdash; Growth</footer>
+    </div>
+</body>
+</html>
